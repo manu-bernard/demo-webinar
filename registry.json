@@ -1,5 +1,15 @@
 [
   {
+    "slug": "meteo-romande",
+    "title": "Météo romande — du lac aux glaciers",
+    "description": "8 lieux de Suisse romande comparés, du Léman aux glaciers : température actuelle et évolution sur 24 h, 7 jours et 12 mois.",
+    "shippedAt": "2026-06-24T17:44:48.423Z",
+    "date": "2026-06-24",
+    "thumbnail": "thumbs/meteo-romande.png",
+    "durationMs": 1928723,
+    "url": "/demos/meteo-romande/"
+  },
+  {
     "slug": "bienvenue",
     "title": "Bienvenue",
     "description": "La démo inaugurale de la galerie — un aperçu de ce qu'un agent produit d'un seul prompt.",
