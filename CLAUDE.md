@@ -46,7 +46,10 @@ une mission (le commit final inclut `public/` et `registry.json`, gérés par le
 
 **Statique et incassable.** Si la démo a besoin de données externes (API, scraping…),
 récupère-les **au build** et fige-les en JSON dans `demos/<slug>/data/`. La démo en ligne
-ne fait **aucun appel réseau au runtime**.
+ne fait **aucun appel réseau au runtime**. ⚠️ Au build, récupère via **`curl`** (ou un
+script Node qui shell-out vers `curl`) : le `fetch` global de Node **n'emprunte pas** le
+proxy sortant de la sandbox et part en timeout. La page importe ensuite le JSON figé
+(`import data from '../data/x.json'`) → Vite l'inline dans le bundle, zéro fetch au runtime.
 
 **Observe ton travail — en local, intensément.** Ton œil : Playwright/Chromium sur le
 serveur de dev. Capture en desktop **et** mobile, autant de fois qu'il le faut, et traque
@@ -96,7 +99,9 @@ ne l'édite jamais à la main.
 ## Déploiement
 
 L'environnement te place sur une **branche de session** (`claude/…`). Coolify déploie
-**`main`**, donc à la fin tu publies ta démo sur `main` :
+**`main`**, donc à la fin tu publies ta démo sur `main`. **C'est l'exception attendue** :
+publier le commit de la mission sur `main` via `HEAD:main` est explicitement autorisé ici
+(garde aussi ta branche de session à jour). Concrètement :
 
 ```bash
 git add -A && git commit -m "demo: <slug>"
