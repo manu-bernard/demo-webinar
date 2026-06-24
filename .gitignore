@@ -1,0 +1,14 @@
+# Claude Code — réglages locaux, non versionnés
+.claude/settings.local.json
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Dépendances / build (à adapter selon la stack du projet)
+node_modules/
+dist/
+build/
+.env
+.env.local
+*.log
