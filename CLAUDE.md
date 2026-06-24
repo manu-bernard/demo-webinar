@@ -31,9 +31,10 @@ npm run demo:dev <slug>                  # 2. dev + hot reload (localhost:5173)
 # … tu codes dans demos/<slug>/ …
 npm run demo:shot <url> <slug>           # 3. inspecter desktop+mobile -> Read (teste À FOND en local)
 npm run demo:ship <slug>                 # 4. build figé + vignette + galerie + temps
-git add -A && git commit -m "demo: <slug>" && git push   # 5. commit + push (sur main)
-# 6. déclencher le déploiement : outil MCP coolify_deploy(uuid="iscw4c0owc8w0ssw804ocw00")
-npm run demo:verify <slug>               # 7. smoke test du live (HTTP 200 + contenu)
+git add -A && git commit -m "demo: <slug>"               # 5. commit (branche de session)
+git pull --no-edit origin main && git push origin HEAD:main   # 6. publie la démo sur main
+# 7. déploie : coolify_deploy(uuid="iscw4c0owc8w0ssw804ocw00")
+npm run demo:verify <slug>               # 8. smoke test du live (HTTP 200 + contenu)
 ```
 Skills dédiés : **`new-demo`**, **`inspect`**, **`ship-demo`**.
 
@@ -94,14 +95,22 @@ ne l'édite jamais à la main.
 
 ## Déploiement
 
-1. Tu travailles sur **`main`** — c'est la branche que Coolify déploie. `git push` (le
-   `public/` figé part avec le commit).
-2. Déclenche le déploiement via l'outil MCP avqn-os :
-   `coolify_deploy(uuid="iscw4c0owc8w0ssw804ocw00")` — app **demo-webinar**, serveur Prod,
+L'environnement te place sur une **branche de session** (`claude/…`). Coolify déploie
+**`main`**, donc à la fin tu publies ta démo sur `main` :
+
+```bash
+git add -A && git commit -m "demo: <slug>"
+git pull --no-edit origin main      # intègre main (au cas où une autre démo soit passée)
+git push origin HEAD:main           # publie ta démo sur main
+```
+Démos isolées → aucun conflit, sauf parfois `registry.json` / `public/index.html` (deux
+démos en parallèle) : garde **les deux** entrées, puis `npm run home:build`.
+
+Ensuite :
+1. `coolify_deploy(uuid="iscw4c0owc8w0ssw804ocw00")` — app **demo-webinar**, serveur Prod,
    projet 05-Websites. Coolify reconstruit une petite image nginx servant `public/`
-   (quelques secondes). **Un seul conteneur** pour toutes les démos, aucune ancienne
-   démo reconstruite (robuste et léger en disque).
-3. `npm run demo:verify <slug>` — smoke test (HTTP 200 + contenu servi).
+   (quelques secondes). **Un seul conteneur** pour toutes les démos, aucune ancienne reconstruite.
+2. `npm run demo:verify <slug>` — smoke test (HTTP 200 + contenu servi).
 
 `demo.avqn.ch` est couvert par le wildcard DNS `*.avqn.ch` → Prod (certificat TLS auto).
 

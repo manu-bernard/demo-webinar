@@ -12,13 +12,16 @@ npm run demo:ship <slug>
 Construit la démo en statique (`public/demos/<slug>/`), génère la vignette,
 met à jour `registry.json` + la galerie, affiche le **temps écoulé** et le **lien**.
 
-## 2. Déployer
+## 2. Déployer (publier sur main)
+Tu es sur une branche de session ; Coolify déploie **`main`**. Publie ta démo dessus :
 ```bash
-git add -A && git commit -m "demo: <slug>" && git push   # sur main (branche déployée)
+git add -A && git commit -m "demo: <slug>"
+git pull --no-edit origin main      # intègre main si une autre démo est passée
+git push origin HEAD:main           # publie sur main
 ```
-Puis déclenche le déploiement avec l'outil MCP avqn-os **`coolify_deploy`** :
-`coolify_deploy(uuid="iscw4c0owc8w0ssw804ocw00")`. Coolify reconstruit une petite image
-nginx servant `public/` (quelques secondes ; aucune autre démo touchée).
+Conflit possible seulement sur `registry.json` / `public/index.html` : garde les deux
+démos, puis `npm run home:build`. Puis déclenche le déploiement avec l'outil MCP avqn-os :
+`coolify_deploy(uuid="iscw4c0owc8w0ssw804ocw00")` (rebuild nginx, quelques secondes).
 
 ## 3. Smoke test du live (léger)
 Le rendu est DÉJÀ validé en local au Chromium (skill `inspect`) — c'est là que tu testes
