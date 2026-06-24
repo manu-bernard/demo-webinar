@@ -10,7 +10,7 @@ Tu DOIS regarder ton travail avant de le livrer. Ton œil, c'est Playwright.
 ## Capturer
 Serveur de dev lancé (`npm run demo:dev <slug>`), puis :
 ```bash
-npm run demo:shot http://localhost:5173 --name <slug>
+npm run demo:shot http://localhost:5173 <slug>
 ```
 Écrit `.shots/<slug>-desktop.png` et `.shots/<slug>-mobile.png`.
 **Ouvre-les avec l'outil Read** — tu peux voir les images.

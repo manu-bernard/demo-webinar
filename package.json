@@ -10,6 +10,7 @@
     "demo:build": "node scripts/build-demo.mjs",
     "demo:shot": "node scripts/shot.mjs",
     "demo:ship": "node scripts/ship.mjs",
+    "demo:verify": "node scripts/verify-live.mjs",
     "home:build": "node scripts/build-home.mjs"
   },
   "dependencies": {
