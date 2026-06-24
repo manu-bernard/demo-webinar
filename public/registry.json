@@ -1,5 +1,15 @@
 [
   {
+    "slug": "meteo-romande",
+    "title": "Météo romande — du lac aux sommets",
+    "description": "",
+    "shippedAt": "2026-06-24T11:58:38.973Z",
+    "date": "2026-06-24",
+    "thumbnail": "thumbs/meteo-romande.png",
+    "durationMs": 1791814,
+    "url": "/demos/meteo-romande/"
+  },
+  {
     "slug": "bienvenue",
     "title": "Bienvenue",
     "description": "La démo inaugurale de la galerie — un aperçu de ce qu'un agent produit d'un seul prompt.",
