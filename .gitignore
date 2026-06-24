@@ -1,14 +1,23 @@
+# Dépendances
+node_modules/
+
 # Claude Code — réglages locaux, non versionnés
 .claude/settings.local.json
 
-# OS
+# Sorties d'inspection éphémères (screenshots de travail)
+.shots/
+demos/**/.shots/
+
+# Cache des outils
+**/.vite/
+*.tsbuildinfo
+
+# OS / logs
 .DS_Store
 Thumbs.db
-
-# Dépendances / build (à adapter selon la stack du projet)
-node_modules/
-dist/
-build/
+*.log
 .env
 .env.local
-*.log
+
+# IMPORTANT : on COMMIT public/ (le dist statique servi par le serveur)
+# et registry.json (l'index des démos). Ne pas les ignorer.

@@ -1,0 +1,38 @@
+{
+  "name": "demo-webinar",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Galerie de mini-sites de démonstration, construits en autonomie par des agents IA pour des webinaires live. Chaque démo est un site statique isolé.",
+  "scripts": {
+    "demo:new": "node scripts/new-demo.mjs",
+    "demo:dev": "node scripts/dev-demo.mjs",
+    "demo:build": "node scripts/build-demo.mjs",
+    "demo:shot": "node scripts/shot.mjs",
+    "demo:ship": "node scripts/ship.mjs",
+    "home:build": "node scripts/build-home.mjs"
+  },
+  "dependencies": {
+    "@react-three/drei": "^10.7.7",
+    "@react-three/fiber": "^9.6.1",
+    "@react-three/postprocessing": "^3.0.4",
+    "framer-motion": "^12.41.0",
+    "gsap": "^3.15.0",
+    "lucide-react": "^1.21.0",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
+    "three": "^0.184.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.3.1",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "@types/three": "^0.184.1",
+    "@vitejs/plugin-react": "^6.0.3",
+    "playwright": "1.56.1",
+    "sirv": "^3.0.2",
+    "tailwindcss": "^4.3.1",
+    "typescript": "^6.0.3",
+    "vite": "^8.1.0"
+  }
+}
