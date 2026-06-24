@@ -14,7 +14,7 @@ met à jour `registry.json` + la galerie, affiche le **temps écoulé** et le **
 
 ## 2. Déployer
 ```bash
-git add -A && git commit -m "demo: <slug>" && git push
+git add -A && git commit -m "demo: <slug>" && git push   # sur main (branche déployée)
 ```
 Puis déclenche le déploiement avec l'outil MCP avqn-os **`coolify_deploy`** :
 `coolify_deploy(uuid="iscw4c0owc8w0ssw804ocw00")`. Coolify reconstruit une petite image

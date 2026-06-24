@@ -31,7 +31,7 @@ npm run demo:dev <slug>                  # 2. dev + hot reload (localhost:5173)
 # … tu codes dans demos/<slug>/ …
 npm run demo:shot <url> <slug>           # 3. inspecter desktop+mobile -> Read (teste À FOND en local)
 npm run demo:ship <slug>                 # 4. build figé + vignette + galerie + temps
-git add -A && git commit -m "demo: <slug>" && git push   # 5. commit + push
+git add -A && git commit -m "demo: <slug>" && git push   # 5. commit + push (sur main)
 # 6. déclencher le déploiement : outil MCP coolify_deploy(uuid="iscw4c0owc8w0ssw804ocw00")
 npm run demo:verify <slug>               # 7. smoke test du live (HTTP 200 + contenu)
 ```
@@ -94,7 +94,8 @@ ne l'édite jamais à la main.
 
 ## Déploiement
 
-1. `git push` (le `public/` figé part avec le commit).
+1. Tu travailles sur **`main`** — c'est la branche que Coolify déploie. `git push` (le
+   `public/` figé part avec le commit).
 2. Déclenche le déploiement via l'outil MCP avqn-os :
    `coolify_deploy(uuid="iscw4c0owc8w0ssw804ocw00")` — app **demo-webinar**, serveur Prod,
    projet 05-Websites. Coolify reconstruit une petite image nginx servant `public/`
